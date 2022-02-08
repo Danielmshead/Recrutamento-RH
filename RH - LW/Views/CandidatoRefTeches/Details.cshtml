@@ -1,0 +1,26 @@
+﻿@model RH___LW.Models.CandidatoRefTech
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidatoRefTech</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoRefTechName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoRefTechName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CandidatoRefTechID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

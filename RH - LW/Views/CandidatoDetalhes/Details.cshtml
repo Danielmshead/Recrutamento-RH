@@ -1,0 +1,58 @@
+﻿@model RH___LW.Models.CandidatoDetalhe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidatoDetalhe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoIdade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoIdade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoEndereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoEndereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidatoRefTech.CandidatoRefTechName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidatoRefTech.CandidatoRefTechName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CandidatoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RH___LW.Models.CandidatoDetalhe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatoNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatoIdade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatoEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatoEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatoRefTech.CandidatoRefTechName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatoNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatoIdade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatoEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatoEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatoRefTech.CandidatoRefTechName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CandidatoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CandidatoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CandidatoID })
+        </td>
+    </tr>
+}
+
+</table>

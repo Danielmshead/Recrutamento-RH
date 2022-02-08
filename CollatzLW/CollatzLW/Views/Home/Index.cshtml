@@ -1,0 +1,89 @@
+﻿@model IndexViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home page";
+}
+@{
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+   <div class="card text-center">
+  <div class="card-header">
+    Calculadora Collatz LW
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Calculadora Collatz LW (3n+1) </h5>
+    <p class="card-text">Desenvolva uma aplicação que descubra qual o número inicial entre 1 e 1 milhão 
+que produz a maior sequência.</p>
+    <div>
+        @if(ViewBag.ValidationSummary != null){
+        <p class="text-danger">@ViewBag.ValidationSummary</p>
+        }
+        <form asp-action="Index" asp-controller="Home" method="post">
+         <div class="form-group">
+           <input asp-for="Number" type="tel" placeholder="Digite um Numero acima de 0...."/>
+           <button type="submit" class="btn btn-outline-primary">Calcular <i class="fa fa-telegram"></i></button>
+         </div>
+         </form>
+
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+   <div class="card text-center">
+  <div class="card-header">
+   
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Resultados</h5>
+    <p class="card-text">Melhor calcular aqui do que na mao! Aproveite!.</p>
+    <div>
+       <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Categoria</th>
+      <th scope="col">Resultados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numero digitado</td>
+      <td>@Model.Number</td>
+    </tr>
+    <tr>
+      <td>Total Steps</td>
+                            <td> @if (ViewBag.Steps != null)
+                                {
+                                    @ViewBag.Steps
+                                }
+                            </td>
+                        </tr>
+    <tr>
+      <td>Sequencia de Collatz</td>
+                            <td> @if (ViewBag.Sequence != null)
+                                {
+                                    @ViewBag.Sequence
+                                }
+                            </td>
+                        </tr>
+     <tr>
+      <td>Valor Maximo</td>
+      <td> @if (ViewBag.Max != null)
+                                {
+                                    @ViewBag.Max
+                                }</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+</div>

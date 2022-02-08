@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>RH.APP</h1>
+    <p class="lead">
+        O RH necessita de uma aplicação para traçar as tecnologias que os candidatos
+        conhecem. Como cadastros base, será informado ao sistema quais tecnologias a
+        empresa trabalha, e quais vagas estão disponíveis. Durante a entrevista, candidato
+        será cadastrado a uma vaga e vinculado às tecnologias que conhece. Ao final do
+        período de triagem de currículos, o RH informará o peso de cada tecnologia para a
+        vaga em questão, recebendo com isso, um relatório ordenado por candidato, pontuado
+        de acordo com o conhecimento do mesmo.”
+    </p>
+    <p><a href="https://www.linkedin.com/in/daniel-matias-da-silva-04810324/" class="btn btn-primary btn-lg">Saiba Mais &raquo;</a></p>
+</div>
+
+<div>
+    <a class="btn btn-primary btn-lg" @Html.ActionLink("Entrevista", "Index", "EntrevistaDetalhes")</a>
+    <a class="btn btn-primary btn-lg" @Html.ActionLink("Lista dos Candidatos", "Index", "CandidatoDetalhes")</a>
+    <a class="btn btn-primary btn-lg" @Html.ActionLink("Tecnologias", "Index", "CandidatoRefTeches") </a >
+    <a class="btn btn-primary btn-lg" @Html.ActionLink("Vagas Ofertadas", "Index", "Vagas") </a >
+    <a class="btn btn-primary btn-lg" @Html.ActionLink("Disponibilidades", "Index", "VagaRefDetalhes") </a >
+</div>
+
+<!--<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+<div class="text">
+    <h2 class="title">Sobre nós</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Necessitatibus deleniti perferendis vel molestiae soluta, quaerat
+        beatae dicta ducimus praesentium architecto harum dolorum
+        distinctio illo earum assumenda itaque. Omnis, quam repellat.
+    </p>
+    <br />
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+        illum ratione impedit quae eum quis adipisci asperiores, est
+        doloribus distinctio excepturi minima eius dolore! Perferendis
+        laborum illo aspernatur repellendus ipsum.
+    </p>
+    <br />
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
+        exercitationem, illum sapiente quasi hic iusto odio maiores esse
+        quaerat quis necessitatibus at odit, dolores dicta, officia ab
+        quos. Provident, quae.
+    </p>
+</div>-->

@@ -1,0 +1,34 @@
+﻿@model RH___LW.Models.Vaga
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vaga</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VagaNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VagaNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VagaRefDetalhe.VagaRefDetalheName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VagaRefDetalhe.VagaRefDetalheName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VagaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,82 @@
+﻿@model RH___LW.Models.EntrevistaDetalhe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EntrevistaDetalhe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrevaumpoucosobrevocê)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrevaumpoucosobrevocê)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digiteoqueseusexchefesdiriamsobrevocê)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digiteoqueseusexchefesdiriamsobrevocê)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digiteoquevocêsabesobreanossaempresaenossaculturaorganizacional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digiteoquevocêsabesobreanossaempresaenossaculturaorganizacional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digiteoporquevocêdecidiusecandidataraestavaga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digiteoporquevocêdecidiusecandidataraestavaga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digiteoqueseuscolegasdetrabalhodiriamsobrevocê)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digiteoqueseuscolegasdetrabalhodiriamsobrevocê)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digitequaissãoos_seus_pontos_fortesefracos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digitequaissãoos_seus_pontos_fortesefracos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DigitesobresuaexperiênciacomoDev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DigitesobresuaexperiênciacomoDev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Digiteoporquevocêquersairousaiudaúltimaempresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Digiteoporquevocêquersairousaiudaúltimaempresa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NomeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

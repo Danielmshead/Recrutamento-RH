@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RH___LW.Models.EntrevistaDetalhe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrevaumpoucosobrevocê)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digiteoqueseusexchefesdiriamsobrevocê)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digiteoquevocêsabesobreanossaempresaenossaculturaorganizacional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digiteoporquevocêdecidiusecandidataraestavaga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digiteoqueseuscolegasdetrabalhodiriamsobrevocê)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digitequaissãoos_seus_pontos_fortesefracos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DigitesobresuaexperiênciacomoDev)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Digiteoporquevocêquersairousaiudaúltimaempresa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrevaumpoucosobrevocê)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digiteoqueseusexchefesdiriamsobrevocê)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digiteoquevocêsabesobreanossaempresaenossaculturaorganizacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digiteoporquevocêdecidiusecandidataraestavaga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digiteoqueseuscolegasdetrabalhodiriamsobrevocê)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digitequaissãoos_seus_pontos_fortesefracos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DigitesobresuaexperiênciacomoDev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Digiteoporquevocêquersairousaiudaúltimaempresa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NomeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NomeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NomeID })
+        </td>
+    </tr>
+}
+
+</table>

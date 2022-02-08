@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CandidatoDetalhe">
+          <Key>
+            <PropertyRef Name="CandidatoID" />
+          </Key>
+          <Property Name="CandidatoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidatoNome" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatoIdade" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatoEmail" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatoEndereco" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatoTechID" Type="int" />
+        </EntityType>
+        <EntityType Name="CandidatoRefTech">
+          <Key>
+            <PropertyRef Name="CandidatoRefTechID" />
+          </Key>
+          <Property Name="CandidatoRefTechID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidatoRefTechName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vaga">
+          <Key>
+            <PropertyRef Name="VagaID" />
+          </Key>
+          <Property Name="VagaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VagaNome" Type="varchar" MaxLength="50" />
+          <Property Name="VagaDetalheID" Type="int" />
+        </EntityType>
+        <EntityType Name="VagaRefDetalhe">
+          <Key>
+            <PropertyRef Name="VagaRefDetalheID" />
+          </Key>
+          <Property Name="VagaRefDetalheID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VagaRefDetalheName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Candidato__Candi__01142BA1">
+          <End Role="CandidatoRefTech" Type="Self.CandidatoRefTech" Multiplicity="0..1" />
+          <End Role="CandidatoDetalhe" Type="Self.CandidatoDetalhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CandidatoRefTech">
+              <PropertyRef Name="CandidatoRefTechID" />
+            </Principal>
+            <Dependent Role="CandidatoDetalhe">
+              <PropertyRef Name="CandidatoTechID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vaga__VagaDetalh__18EBB532">
+          <End Role="VagaRefDetalhe" Type="Self.VagaRefDetalhe" Multiplicity="0..1" />
+          <End Role="Vaga" Type="Self.Vaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VagaRefDetalhe">
+              <PropertyRef Name="VagaRefDetalheID" />
+            </Principal>
+            <Dependent Role="Vaga">
+              <PropertyRef Name="VagaDetalheID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RHModelStoreContainer">
+          <EntitySet Name="CandidatoDetalhe" EntityType="Self.CandidatoDetalhe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidatoRefTech" EntityType="Self.CandidatoRefTech" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vaga" EntityType="Self.Vaga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VagaRefDetalhe" EntityType="Self.VagaRefDetalhe" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Candidato__Candi__01142BA1" Association="Self.FK__Candidato__Candi__01142BA1">
+            <End Role="CandidatoRefTech" EntitySet="CandidatoRefTech" />
+            <End Role="CandidatoDetalhe" EntitySet="CandidatoDetalhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vaga__VagaDetalh__18EBB532" Association="Self.FK__Vaga__VagaDetalh__18EBB532">
+            <End Role="VagaRefDetalhe" EntitySet="VagaRefDetalhe" />
+            <End Role="Vaga" EntitySet="Vaga" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CandidatoDetalhe">
+          <Key>
+            <PropertyRef Name="CandidatoID" />
+          </Key>
+          <Property Name="CandidatoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidatoNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CandidatoIdade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CandidatoEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CandidatoEndereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CandidatoTechID" Type="Int32" />
+          <NavigationProperty Name="CandidatoRefTech" Relationship="Self.FK__Candidato__Candi__01142BA1" FromRole="CandidatoDetalhe" ToRole="CandidatoRefTech" />
+        </EntityType>
+        <EntityType Name="CandidatoRefTech">
+          <Key>
+            <PropertyRef Name="CandidatoRefTechID" />
+          </Key>
+          <Property Name="CandidatoRefTechID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidatoRefTechName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CandidatoDetalhes" Relationship="Self.FK__Candidato__Candi__01142BA1" FromRole="CandidatoRefTech" ToRole="CandidatoDetalhe" />
+        </EntityType>
+        <EntityType Name="Vaga">
+          <Key>
+            <PropertyRef Name="VagaID" />
+          </Key>
+          <Property Name="VagaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VagaNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VagaDetalheID" Type="Int32" />
+          <NavigationProperty Name="VagaRefDetalhe" Relationship="Self.FK__Vaga__VagaDetalh__18EBB532" FromRole="Vaga" ToRole="VagaRefDetalhe" />
+        </EntityType>
+        <EntityType Name="VagaRefDetalhe">
+          <Key>
+            <PropertyRef Name="VagaRefDetalheID" />
+          </Key>
+          <Property Name="VagaRefDetalheID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VagaRefDetalheName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vagas" Relationship="Self.FK__Vaga__VagaDetalh__18EBB532" FromRole="VagaRefDetalhe" ToRole="Vaga" />
+        </EntityType>
+        <Association Name="FK__Candidato__Candi__01142BA1">
+          <End Role="CandidatoRefTech" Type="Self.CandidatoRefTech" Multiplicity="0..1" />
+          <End Role="CandidatoDetalhe" Type="Self.CandidatoDetalhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CandidatoRefTech">
+              <PropertyRef Name="CandidatoRefTechID" />
+            </Principal>
+            <Dependent Role="CandidatoDetalhe">
+              <PropertyRef Name="CandidatoTechID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vaga__VagaDetalh__18EBB532">
+          <End Role="VagaRefDetalhe" Type="Self.VagaRefDetalhe" Multiplicity="0..1" />
+          <End Role="Vaga" Type="Self.Vaga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VagaRefDetalhe">
+              <PropertyRef Name="VagaRefDetalheID" />
+            </Principal>
+            <Dependent Role="Vaga">
+              <PropertyRef Name="VagaDetalheID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RHEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CandidatoDetalhes" EntityType="Self.CandidatoDetalhe" />
+          <EntitySet Name="CandidatoRefTeches" EntityType="Self.CandidatoRefTech" />
+          <EntitySet Name="Vagas" EntityType="Self.Vaga" />
+          <EntitySet Name="VagaRefDetalhes" EntityType="Self.VagaRefDetalhe" />
+          <AssociationSet Name="FK__Candidato__Candi__01142BA1" Association="Self.FK__Candidato__Candi__01142BA1">
+            <End Role="CandidatoRefTech" EntitySet="CandidatoRefTeches" />
+            <End Role="CandidatoDetalhe" EntitySet="CandidatoDetalhes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vaga__VagaDetalh__18EBB532" Association="Self.FK__Vaga__VagaDetalh__18EBB532">
+            <End Role="VagaRefDetalhe" EntitySet="VagaRefDetalhes" />
+            <End Role="Vaga" EntitySet="Vagas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RHModelStoreContainer" CdmEntityContainer="RHEntities1">
+          <EntitySetMapping Name="CandidatoDetalhes">
+            <EntityTypeMapping TypeName="RHModel.CandidatoDetalhe">
+              <MappingFragment StoreEntitySet="CandidatoDetalhe">
+                <ScalarProperty Name="CandidatoID" ColumnName="CandidatoID" />
+                <ScalarProperty Name="CandidatoNome" ColumnName="CandidatoNome" />
+                <ScalarProperty Name="CandidatoIdade" ColumnName="CandidatoIdade" />
+                <ScalarProperty Name="CandidatoEmail" ColumnName="CandidatoEmail" />
+                <ScalarProperty Name="CandidatoEndereco" ColumnName="CandidatoEndereco" />
+                <ScalarProperty Name="CandidatoTechID" ColumnName="CandidatoTechID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidatoRefTeches">
+            <EntityTypeMapping TypeName="RHModel.CandidatoRefTech">
+              <MappingFragment StoreEntitySet="CandidatoRefTech">
+                <ScalarProperty Name="CandidatoRefTechID" ColumnName="CandidatoRefTechID" />
+                <ScalarProperty Name="CandidatoRefTechName" ColumnName="CandidatoRefTechName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vagas">
+            <EntityTypeMapping TypeName="RHModel.Vaga">
+              <MappingFragment StoreEntitySet="Vaga">
+                <ScalarProperty Name="VagaID" ColumnName="VagaID" />
+                <ScalarProperty Name="VagaNome" ColumnName="VagaNome" />
+                <ScalarProperty Name="VagaDetalheID" ColumnName="VagaDetalheID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VagaRefDetalhes">
+            <EntityTypeMapping TypeName="RHModel.VagaRefDetalhe">
+              <MappingFragment StoreEntitySet="VagaRefDetalhe">
+                <ScalarProperty Name="VagaRefDetalheID" ColumnName="VagaRefDetalheID" />
+                <ScalarProperty Name="VagaRefDetalheName" ColumnName="VagaRefDetalheName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
